@@ -19,7 +19,11 @@ add_library(neon_backend SHARED
         ${PROTO_HDRS}
         source/glx_hook.c
         source/APIService.cpp
-        source/APIService.h source/MemoryService.cpp source/MemoryService.h source/FunctionService.cpp source/FunctionService.h)
+        source/APIService.h
+        source/MemoryService.cpp
+        source/MemoryService.h
+        source/FunctionService.cpp
+        source/FunctionService.h)
 
 set_target_properties(neon_backend PROPERTIES COMPILE_FLAGS "-m32 -g" LINK_FLAGS "-m32 -g")
 

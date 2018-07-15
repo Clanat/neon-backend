@@ -32,6 +32,8 @@ APIService::APIService(const char *address, MemoryService& memoryService, Functi
         _socket({_context, zmq::socket_type::rep}),
         _pollItem() {
 
+    auto reconnectInterval = 10000;
+    _socket.setsockopt(ZMQ_RECONNECT_IVL, &reconnectInterval);
     _socket.bind(_address);
     _pollItem.events = ZMQ_POLLIN;
     _pollItem.socket = _socket;

@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+message Request {
+    enum Kind {
+        MEMORY_QUERY = 0;
+        MEMORY_BATCH_QUERY = 1;
+        FUNCTION_QUERY = 3;
+    }
+
+    Kind kind = 1;
+    bytes data = 2;
+}
+
+message Response {
+    enum Kind {
+        ERROR = 0;
+        MEMORY_QUERY = 1;
+        MEMORY_BATCH_QUERY = 2;
+        FUNCTION_QUERY = 3;
+    }
+
+    message Error {
+        string message = 1;
+    }
+
+    Kind kind = 1;
+    bytes data = 2;
+}
+
+message MemoryQuery {
+    enum Kind {
+        READ = 0;
+        WRITE = 1;
+    }
+
+    message Result {
+        bytes data = 1;
+    }
+
+    Kind kind = 1;
+    uint32 address = 2;
+    bytes data = 3;
+    int32 size = 4;
+}
+
+message MemoryBatchQuery {
+    message Result {
+        repeated MemoryQuery.Result results = 1;
+    }
+    repeated MemoryQuery queries = 1;
+}
+
+message FunctionQuery {
+    enum Kind {
+        DEV = 0;
+        ENUM_VISIBLE_OBJECTS = 1;
+        OBJECT_POINTER = 3;
+        ACTIVE_PLAYER_POINTER = 4;
+        ACTIVE_PLAYER_GUID = 5;
+        MAP_ID = 6;
+        CLICK_TO_MOVE = 7;
+    }
+
+    message Result {
+         bytes data = 1;
+    }
+
+    repeated bytes args = 1;
+    Kind kind = 2;
+}
+
+message WoWObjectsResult {
+    enum Type {
+        NONE = 0;
+        ITEM = 1;
+        CONTAINER = 2;
+        UNIT = 3;
+        PLAYER = 4;
+        GAME_OBJECT = 5;
+        DYNAMIC_OBJECT = 6;
+        CORPSE = 7;
+    }
+
+    repeated uint32 pointers = 1;
+    repeated uint64 guids = 2;
+    repeated Type types = 3;
+}

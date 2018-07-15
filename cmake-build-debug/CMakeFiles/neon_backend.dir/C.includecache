@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/clanat/dev/neon-backend-cpp/source/glx_hook.c
+dlfcn.h
+-
+string.h
+-
+stdlib.h
+-
+stdio.h
+-
+GL/gl.h
+-
+GL/glx.h
+-
+glx_hook.h
+/home/clanat/dev/neon-backend-cpp/source/glx_hook.h
+
+/home/clanat/dev/neon-backend-cpp/source/glx_hook.h
+

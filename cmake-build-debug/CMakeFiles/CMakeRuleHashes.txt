@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-c501cad68cf97ae10aafa84300141ded Models.pb.cc

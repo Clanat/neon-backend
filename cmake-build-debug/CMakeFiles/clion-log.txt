@@ -1,5 +1,0 @@
-/home/clanat/apps/clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/clanat/dev/neon-backend-cpp
--- Could NOT find Threads (missing: Threads_FOUND) 
--- Configuring done
--- Generating done
--- Build files have been written to: /home/clanat/dev/neon-backend-cpp/cmake-build-debug

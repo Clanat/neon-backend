@@ -1,3 +1,0 @@
-/home/clanat/dev/neon-backend-cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/clanat/dev/neon-backend-cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/clanat/dev/neon-backend-cpp/cmake-build-debug/CMakeFiles/neon_backend.dir

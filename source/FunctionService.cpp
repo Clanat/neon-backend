@@ -111,7 +111,7 @@ uint32_t FunctionService::GetMapId() const {
 }
 
 bool FunctionService::ClickToMove(uint32_t action, float *point, uint64_t targetGuid, float precision) const {
-    typedef bool (*func_t)(uint32_t, float*, uint64_t*, float) /*__attribute__ ((stdcall))*/;
+    typedef bool (*func_t)(uint32_t, uint64_t*, float*, float) __attribute__ ((stdcall));
 
     auto playerPtr = (void *)GetObjectPointer(GetActivePlayerGuid());
     if (playerPtr == nullptr) {
@@ -120,7 +120,7 @@ bool FunctionService::ClickToMove(uint32_t action, float *point, uint64_t target
 
     auto func = (func_t)(void *)ADDR_CLICK_TO_MOVE;
     asm volatile ("movl %0, %%ecx" : : "m" (playerPtr));    // thiscall
-    return func(action, point, &targetGuid, precision);
+    return func(action, &targetGuid, point, precision);
 }
 
 void FunctionService::CopyToResult(void *bytes, size_t size, FunctionQuery::Result *result) const {
